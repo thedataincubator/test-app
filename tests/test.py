@@ -2,17 +2,22 @@ from __future__ import division
 import unittest
 from formulas import quadratic, NumericFormula
 import math
-class TestFunctions(unittest.TestCase):
+
+class NumericStringsMixin(object):
+    def _assert_num_strings(self, a, b, method):
+            for i,j in zip(a,b):
+                method(complex(i), complex(j))
+
+class TestFunctions(unittest.TestCase, NumericStringsMixin):
 
     def test_quadratic(self):
         a = 5
         b = 1
         c = 4
         ans = [1/10*1j*(math.sqrt(79) + 1j), -1/10*1j*(math.sqrt(79) - 1j)]
-        for calc, actual in zip(quadratic(a, b, c), ans):
-            self.assertAlmostEqual(calc, actual)
+        self._assert_num_strings(quadratic(a, b, c), ans, self.assertAlmostEquals)
 
-class TestFormula(unittest.TestCase):
+class TestFormula(unittest.TestCase, NumericStringsMixin):
 
     @classmethod
     def setUp(cls):
@@ -26,8 +31,8 @@ class TestFormula(unittest.TestCase):
     def test_eval(self):
         a = 2
         b = 3
-        self.assertEqual(self.formula_one.eval(2, 3), [5])
-        self.assertEqual(self.formula_two.eval(2, 3), [5, -1])
+        self._assert_num_strings(self.formula_one.eval(2, 3), [5], self.assertAlmostEquals)
+        self._assert_num_strings(self.formula_two.eval(2, 3), [5, -1], self.assertAlmostEquals)
 
     def test_validate(self):
 
@@ -39,5 +44,5 @@ class TestFormula(unittest.TestCase):
                 self.formula_one.eval(1, arg)
 
     def test_input(self):
-        self.assertEqual(self.formula_one.inputs(), ['a','b'])
-        self.assertEqual(self.formula_two.inputs(), ['aa', 'bb'])
+        self.assertEquals(self.formula_one.inputs(), ['a','b'])
+        self.assertEquals(self.formula_two.inputs(), ['aa', 'bb'])

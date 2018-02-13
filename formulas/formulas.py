@@ -8,7 +8,10 @@ class NumericFormula(BaseFormula):
         """enusre int or float for numeric quantities
         will raise ValueError if not correct
         """
-        return tuple([float(i) for i in args])
+        try:
+            return tuple([float(i) for i in args])
+        except TypeError:
+            raise ValueError
 
 def quadratic(a, b, c):
     """compute roots for equation of form
