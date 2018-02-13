@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Calculation - {{ formula.display_name() }}{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>{{ formula.display_name() }}</h1>
+        <form id="submit-form">
+          {% for input_ in formula.inputs() %}
+            <div class="form-group">
+              <label for="{{ input_ }}">{{ input_ }}</label>
+              <input type="number" id="{{ input_ }}" name="{{ input_ }}" />
+            </div>
+          {% endfor %}
+          <button id="submit" class="btn btn-primary">Calculate</button>
+        </form>
+        <div id="answer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block javascript %}
+<script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    $("#submit").on('click', function(e){
+            e.preventDefault();
+            $.getJSON($SCRIPT_ROOT + "/_calc-{{ formula.name() }}", 
+              $("#submit-form").serialize(), function(data){
+                if (!data['error']){
+                var html = "<ul>" + data['answer'].map(function(x){
+                  return "<li>" + x + "</li>";
+                }).join('') + "</ul>"
+              }else{
+                var html = "invalid input";
+              }
+              $("#answer").html(html);
+          });
+          return false;
+        });
+  </script>
+{% endblock %}

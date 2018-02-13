@@ -18,8 +18,8 @@ class TestFormula(unittest.TestCase):
     def setUp(cls):
         def func(a, b):
             return a + b
-        def func2(a, b):
-            return [a+b, a-b]
+        def func2(aa, bb):
+            return [aa + bb, aa - bb]
         cls.formula_one = NumericFormula('testing', func)
         cls.formula_two = NumericFormula('testing1', func2)
 
@@ -37,3 +37,7 @@ class TestFormula(unittest.TestCase):
 
             with self.assertRaises(ValueError):
                 self.formula_one.eval(1, arg)
+
+    def test_input(self):
+        self.assertEqual(self.formula_one.inputs(), ['a','b'])
+        self.assertEqual(self.formula_two.inputs(), ['aa', 'bb'])
