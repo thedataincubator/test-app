@@ -1,8 +1,9 @@
 import math
 class Formula(object):
-    def __init__(self, name=name,func=func):
-        self._inputs = func.__code_co_varnames
+    def __init__(self, name,func):
+        self._inputs = func.__code__.co_varnames
         self._func = func 
+        self._name = name
 
     def inputs(self):
         return sorted(self._inputs)
