@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect
+from formulas import FORMULAS
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('index.html', formulas=FORMULAS)
 
 @app.route('/about')
 def about():

@@ -1,0 +1,15 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - nosetests test.py
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: iSZ6ZTCRJVgU9XJCSW7HurBc42YRzYryXpT8O3QPERUsHo1BN/Ij4gdqr1bFGcmgtiCIp+O+lZD20kFami06rD+E1BqTUJ2uDZTsjiDoijHwkOTWsv7ZR++hyHsY2MFGKXVLtPHlksvZKTetN25sazAy4p8HZANUTNNzxPsMajGCJbMHWQutQmO1MD5G5Wfoz5Y2oi/r8A9l54g3SOAXSBW2eVdEEiuP93jfrJhgVJfBFsWyRWGcHwsD3VjRnilqikuQfEFFGcD1WAwzLsslIxXdhJHa3E0M3F6f7aasIHzZleaYMb60Pp+kmNA2l1CrDcbNpxVBZBTZSQn/gUL6piVrY+bFv+8UjBbBh/7mcIBs52FvSQ+r2ZmoL4TqNu0uwYZ0Tq3CnXHGmoYa8AjLH6XaU+pgTbpeC/KPMZjtqQmnQ8Yxt1WIk+Oeus+vfBGLKyDVkm8/Y4RKww1mHhiMy8dy5WvnrSVRzQipilUchfunJkrr8foWSDxMfBQFL/FEq22CAsNLW/5zaSgza+mSy3/3Zo9pmNTeGNSP2GNshBZ/bxq+jehBFqfm4uhLT9c0GRgtmbbxMOQe7xVJoZBWzabjJhwZLbtITMCzuD7IhfVGSzNzpOmpKGLzdatcmMLdFmlmhAhIYJ04ohmPiWB9rFKvPt212PToPyPjzIMN6YU=
