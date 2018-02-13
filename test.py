@@ -1,3 +1,4 @@
+from __future__ import division
 import unittest
 from formulas import quadratic, NumericFormula
 import math

@@ -26,7 +26,7 @@ class NumericFormula(Formula):
 
 def quadratic(a, b, c):
     sqrt = cmath.sqrt(b*b - 4 * a * c)
-    return [(-b + sqrt)/(2 * a ), (-b - sqrt)/(2 * a )]
+    return [(-b + sqrt)/(2.0 * a ), (-b - sqrt)/(2 * a )]
 
     
 FORMULAS = [NumericFormula('Quadratic Formula', quadratic)]
