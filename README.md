@@ -2,10 +2,11 @@
 
 Tasks:
 1. Clone repo locally, ask Zach to get permissions to push branches
-2. Make a branch (or two or three or ...) and open up a PR with a change you like.
-3. Ask for a review from a peer.
-4. Ask for a review from Zach.
-5. Once both reviews are passed, MERGE AWAY!
+2. Choose an issue to work on and comment that you want to work on it.  Or create your own issue and comment that you want to work on that.
+3. Make a branch (or two or three or ...) and open up a PR with a change you like.
+4. Ask for a review from a peer.
+5. Ask for a review from Zach.
+6. Once both reviews are passed, MERGE AWAY!
 
 Some useful commands:
 - Checkout new branch `git checkout -b branch_name`
