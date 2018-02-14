@@ -1,4 +1,4 @@
-# Calculation App  [![Build Status](https://travis-ci.org/thedataincubator/test-app.svg?branch=master)](https://travis-ci.org/thedataincubator/test-app)
+# Calculation App (or whatever you want it to be) [![Build Status](https://travis-ci.org/thedataincubator/test-app.svg?branch=master)](https://travis-ci.org/thedataincubator/test-app)
 
 Tasks:
 1. Clone repo locally, ask Zach to get permissions to push branches
