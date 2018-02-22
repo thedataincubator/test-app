@@ -1,6 +1,7 @@
 import logging
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from formulas import FORMULAS
+import markdown
 
 app = Flask(__name__)
 
@@ -29,6 +30,12 @@ def calc(name):
     ans = dict(answer=None, error=True)
   return jsonify(ans)
 
-
+@app.route('/markdown')
+def render_markdown():
+  filename = 'static/hello_world.md'
+  with open(filename, 'r') as fp:
+    text = "".join(fp.readlines())
+  html = markdown.markdown(text)
+  return render_template('md_base.html', html_=html)
 if __name__ == '__main__':
   app.run(port=33507)
