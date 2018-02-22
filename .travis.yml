@@ -9,6 +9,7 @@ install:
 
 script:
   - nosetests tests/test.py
+  - pylint app.py
 
 deploy:
   provider: heroku
