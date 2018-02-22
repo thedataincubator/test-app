@@ -13,3 +13,5 @@ Some useful commands:
 - Push new branch `git push --set-upstream origin branch_name`
 - Switch branches `git checkout branch_name`
 - Rebase on master `git rebase master`
+
+Proposed sub-project: create an app/website with a short summary of what we learned at TDI.
